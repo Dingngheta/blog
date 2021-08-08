@@ -49,10 +49,31 @@
 
                 <div class="space-y-4 lg:text-lg leading-loose">
                     <p>{!! $post->body !!}</p>
-
-
                 </div>
             </div>
+            <section class="col-span-8 col-start-5 mt-10 space-y-6">
+                <x-panel>
+                    <form action="/posts/{{ $post->slug }}/comments" method="post">
+                        @csrf
+                        <header class="flex">
+                            <img src="https://i.pravatar.cc/150?u={{ auth()->id() }}" alt="" width="40" height="40"
+                                class="rounded-full">
+                            <h2 class="ml-4">Want to particiapte?</h2>
+                        </header>
+                        <div class="mt-5">
+                            <textarea rows="5" name="body" class="w-full text-sm focus:outline-none focus:ring"
+                                placeholder="Something to say"></textarea>
+                        </div>
+                        <div class="flex justify-end mt-6 border-t border-gray-200 pt-6">
+                            <button type="submit" class="bg-blue-500 text-sm py-2 px-4 text-sm hover: bg-blue-600 
+                        text-white uppercase font-semibold rounded-2xl">Post</button>
+                        </div>
+                    </form>
+                </x-panel>
+                @foreach ($post->comments as $comment)
+                    <x-post-comment :comment="$comment" />
+                @endforeach
+            </section>
         </article>
     </main>
 </x-layout>

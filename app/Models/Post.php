@@ -25,6 +25,11 @@ class Post extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
     public function scopeFilter($query, array $filters)
     {
         $query->when(
@@ -36,6 +41,7 @@ class Post extends Model
                     ->orWhere('body', 'like', '%' . $search . '%')
             )
         );
+
 
         $query->when(
 

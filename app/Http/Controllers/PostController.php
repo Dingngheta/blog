@@ -22,7 +22,7 @@ class PostController extends Controller
     {
         return view('posts.show', [
             'post' => $post,
-            'categories' => Category::all()
+            //'categories' => Category::all()
         ]);
     }
 }

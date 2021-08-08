@@ -4,7 +4,7 @@
     </h1>
     <div class="space-y-2 lg:space-y-0 lg:space-x-4 mt-4">
         <!--  Category -->
-        <div class="relative lg:inline-flex bg-gray-100 rounded-xl">
+        <div class="relative lg:inline-flex bg-gray-100 rounded-xl text-left">
             <x-category-dropdown />
         </div>
 
